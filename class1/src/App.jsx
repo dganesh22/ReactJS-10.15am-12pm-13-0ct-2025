@@ -8,6 +8,8 @@ import Page4 from './Pages/Page4'
 import MyPage5 from './Pages/Page5'
 import Page6 from './Pages/Page6'
 import Page7 from './Pages/Page7'
+import Page8 from './Pages/Page8'
+import Page9 from './Pages/Page9'
 
 // component body
 function App(props) {
@@ -19,8 +21,10 @@ function App(props) {
          <Page3/>
          <Page4/> 
          <MyPage5/>
-         <Page6/>*/}
+         <Page6/>
          <Page7/>
+         <Page8/>*/}
+         <Page9/>
     </div>
   )
 }
