@@ -9,6 +9,7 @@
 
 ## 3. Effect Hooks
     a. useEffect
+        same as useEffect => 
     b. useLayoutEffect
     c. useImperativeHandle
 
