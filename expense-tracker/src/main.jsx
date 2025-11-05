@@ -10,8 +10,13 @@ import "bootstrap-icons/font/bootstrap-icons.css"
 
 import "react-toastify/ReactToastify.css"
 
+// custom context provider 
+import AuthProvider from './Context/AuthProvider.jsx'
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+      <AuthProvider>
+            <App/>
+      </AuthProvider>
   </StrictMode>,
 )
