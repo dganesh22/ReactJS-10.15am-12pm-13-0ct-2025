@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 import { validate } from '../../Util/validation';
+import { ExpenseApi } from '../../API/ExpenseApi';
+import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 function Register(props) {
+    const navigate = useNavigate()
+
     const [user,setUser] = useState({
         name: "",
         email: "",
         mobile: "",
-        pass: ""
+        password: ""
     })
 
     const [error,setError] = useState({
@@ -27,7 +32,7 @@ function Register(props) {
         name: "",
         email: "",
         mobile: "",
-        pass: ""
+        password: ""
     })
     }
 
@@ -38,12 +43,17 @@ function Register(props) {
                
             if(validate(user,setError)) {
                  console.log(`user =`, user)
+                await axios.post(ExpenseApi.registerUser,user)
+                      .then(res => {
+                            toast.success(res?.data?.msg)
+                            navigate(`/login`)
+                      }).catch(err => toast.error(err?.response?.data?.msg))
             } else {
-                console.log(`error submitting form`)
+                toast.warning(`All fields must be properly filled before submission`)
             }
             
             } catch (error) {
-                toast.error(err?.message)
+                toast.error(error?.message)
             }
     }
 
@@ -78,14 +88,14 @@ function Register(props) {
                             </div>
                             <div className="form-group mt-2">
                                 <label htmlFor="mobile">Your mobile</label>
-                                <input type="number" name="mobile" value={user?.mobile} onChange={readInput} id="mobile" className="form-control"  />
+                                <input type="text" name="mobile" value={user?.mobile} onChange={readInput} id="mobile" className="form-control"  />
                                  {
                                     error?.mobileErr && <span className="text-danger"> {error?.mobileErr} </span> 
                                 }
                             </div>
                             <div className="form-group mt-2">
-                                <label htmlFor="pass">Your password</label>
-                                <input type="password" name="pass" value={user?.pass} onChange={readInput} id="pass" className="form-control"  />
+                                <label htmlFor="password">Your password</label>
+                                <input type="password" name="password" value={user?.password} onChange={readInput} id="password" className="form-control"  />
                                  {
                                     error?.passErr && <span className="text-danger"> {error?.passErr} </span> 
                                 }

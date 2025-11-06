@@ -1,9 +1,25 @@
 import React from 'react'
 import { NavLink } from 'react-router'
 import useAuth from '../Hook/useAuth'
+import { ExpenseApi } from '../API/ExpenseApi'
+import { toast } from 'react-toastify'
+import axios from 'axios'
 
 function Menu(props) {
-    const { isLogin } = useAuth()
+    const { isLogin, setToken,setIsLogin, setUser } = useAuth()
+
+    const logoutHandler = async () => {
+        if(window.confirm(`Are you sure to logout?`)) {
+                await axios.get(ExpenseApi?.logoutUser)
+                    .then(res => {
+                        toast.success(res?.data?.msg)
+                        sessionStorage.removeItem("token")
+                        setToken(false)
+                        setIsLogin(false)
+                        setUser(null)
+                    }).catch(err => toast.error(err?.response?.data?.msg))
+        }
+    }
 
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
@@ -29,7 +45,7 @@ function Menu(props) {
                         </ul>
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <NavLink className="btn btn-danger">Logout</NavLink>
+                                <NavLink onClick={logoutHandler} className="btn btn-danger">Logout</NavLink>
                             </li>
                         </ul>
                         </>
