@@ -3,27 +3,14 @@ import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts'
 
 const COLORS = ["#0088fe", "#ffbb28", "#ff8042", "#00c49f"];
 
-const data = [
-    { id: 1, title: "salary", amount: 12356},
-    { id: 2, title: "gift", amount: 1365.65},
-    { id: 3, title: "home rent", amount: -4422.65},
-    { id: 4, title: "grocery", amount: -365.54}
-]
 
-let amounts = data.map((item,index) => Number(item.amount))
-
-let income = amounts.filter(item=> item > 0).reduce((ac,cu) => ac + cu, 0).toFixed(2);
-let expense = amounts.filter(item=> item < 0).reduce((ac,cu) => ac + cu, 0) * -1;
-
-console.log(`income =`,income)
-console.log(`expense =`,expense)
-
+function ExpenseChart(props) {
+    const { bal, incm, exps } = props
+    
 const chartData = [
-    { name: "Income", value: 65 },
-    { name : "Expense", value: 35 }
+    { name: "Balance", value: bal/100 },
+    { name : "Expense", value: exps/100 }
 ]
-
-function ExpenseChart() {
   return (
     <div className="p-2">
         <h5>Expense & Income (%) </h5>

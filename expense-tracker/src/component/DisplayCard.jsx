@@ -2,7 +2,7 @@ import React from 'react'
 import ExpenseChart from './ExpenseChart'
 
 function DisplayCard(props) {
-    const { bal, incm,exps } = props
+    const { bal, incm, exps } = props
   return (
     <div className="container">
          <div className="row p-4">
@@ -32,7 +32,7 @@ function DisplayCard(props) {
             <div className="col-md-4 mt-sm-2">
                 <div className="card">
                     <div className="card-body">
-                        <ExpenseChart/>
+                        <ExpenseChart incm={incm} exps={exps} bal={bal} />
                     </div>
                 </div>
             </div>
