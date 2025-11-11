@@ -11,21 +11,21 @@ function DisplayCard(props) {
                     <div className="card-body text-primary">
                         <h6>
                            <i className="bi bi-wallet"></i> Balance</h6>
-                        <h1 className="float-end"> &#8377; {bal} </h1>
+                        <h2 className="float-end"> &#8377; {bal} </h2>
                     </div>
                 </div>
                 <div className="card w-100">
                     <div className="card-body text-success">
                         <h6>
                            <i className="bi bi-arrow-up"></i> Income</h6>
-                        <h1 className="float-end"> &#8377; { incm } </h1>
+                        <h2 className="float-end"> &#8377; { incm } </h2>
                     </div>
                 </div>
                 <div className="card w-100">
                     <div className="card-body text-danger">
                         <h6>
                            <i className="bi bi-arrow-down"></i> Expense</h6>
-                        <h1 className="float-end"> &#8377; { exps } </h1>
+                        <h2 className="float-end"> &#8377; { exps } </h2>
                     </div>
                 </div>
             </div>

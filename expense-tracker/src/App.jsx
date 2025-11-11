@@ -19,7 +19,8 @@ function App() {
           <Routes>
                 <Route element={<PrivateRoute/>}>
                     <Route path={`/`} element={<Home/>} />
-                    <Route path={`/form`} element={<ExpenseForm/>} />
+                    <Route path={`/newexpense`} element={<ExpenseForm/>} />
+                    <Route path={`/edit/:transId`} element={<ExpenseForm/>} />
                 </Route>
                 <Route path={`/login`} element={isLogin ? <Navigate to={`/`} />: <Login/>} />
                 <Route path={`/register`} element={isLogin ? <Navigate to={`/`} />:<Register/>} />

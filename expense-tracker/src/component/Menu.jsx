@@ -39,9 +39,9 @@ function Menu(props) {
                             <li className="nav-item">
                                 <NavLink to={`/`} className="nav-link">Home</NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink to={`/form`} className="nav-link">Expense Form</NavLink>
-                            </li>
+                            {/* <li className="nav-item">
+                                <NavLink to={`/newexpense`} className="nav-link">Expense Form</NavLink>
+                            </li> */}
                         </ul>
                         <ul className="navbar-nav">
                             <li className="nav-item">
